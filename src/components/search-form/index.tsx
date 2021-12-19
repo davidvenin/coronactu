@@ -19,17 +19,17 @@ export const SearchForm = () => {
         >
           <AsyncInputField
             config={config.getFieldProps("from")}
-            label={"Departure"}
+            label={"Départ"}
             name={"from"}
           />
           <AsyncInputField
             config={config.getFieldProps("to")}
-            label={"Destination"}
+            label={"Arrivée"}
             name={"to"}
           />
           <button
             type={"submit"}
-            className={"whitespace-no-wrap w-full btn btn-red"}
+            className={"w-full bg-primary p-5 rounded-sm text-white"}
           >
             Submit
           </button>
