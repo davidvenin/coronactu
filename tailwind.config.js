@@ -1,12 +1,13 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const defaultConfig = require("tailwindcss/defaultConfig");
 
 module.exports = {
   purge: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
-    "./layouts/**/*.{js,ts,jsx,tsx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./src/layouts/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: "media", // or 'media' or 'class'
   theme: {
     screens: {
       sm: "640px",
@@ -299,44 +300,44 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {
-      borderColor: [...defaultConfig.variants.borderColor, "disabled"],
-      borderRadius: [...defaultConfig.variants.borderRadius, "first", "last"],
-      borderWidth: [...defaultConfig.variants.borderWidth, "last"],
-      cursor: [...defaultConfig.variants.cursor, "hover", "disabled"],
-      margin: [...defaultConfig.variants.margin, "first", "last"],
-      padding: [...defaultConfig.variants.padding, "first", "last"],
-      outline: [...defaultConfig.variants.outline, "focus-visible"],
-      textColor: [...defaultConfig.variants.textColor, "disabled"],
-      transitionProperty: [
-        ...defaultConfig.variants.transitionProperty,
-        "motion-safe",
-      ],
-      transitionDuration: [
-        ...defaultConfig.variants.transitionDuration,
-        "motion-safe",
-      ],
-      translate: [
-        ...defaultConfig.variants.transitionDuration,
-        "active",
-        "group-hover",
-      ],
-      ringWidth: [
-        ...defaultConfig.variants.ringWidth,
-        "hover",
-        "focus",
-        "focus-visible",
-      ],
-      ringColor: [
-        ...defaultConfig.variants.ringColor,
-        "hover",
-        "focus",
-        "focus-visible",
-      ],
-      zIndex: [...defaultConfig.variants.zIndex, "hover"],
-    },
-  },
+  // variants: {
+  //   extend: {
+  //     borderColor: [...defaultConfig.variants.borderColor, "disabled"],
+  //     borderRadius: [...defaultConfig.variants.borderRadius, "first", "last"],
+  //     borderWidth: [...defaultConfig.variants.borderWidth, "last"],
+  //     cursor: [...defaultConfig.variants.cursor, "hover", "disabled"],
+  //     margin: [...defaultConfig.variants.margin, "first", "last"],
+  //     padding: [...defaultConfig.variants.padding, "first", "last"],
+  //     outline: [...defaultConfig.variants.outline, "focus-visible"],
+  //     textColor: [...defaultConfig.variants.textColor, "disabled"],
+  //     transitionProperty: [
+  //       ...defaultConfig.variants.transitionProperty,
+  //       "motion-safe",
+  //     ],
+  //     transitionDuration: [
+  //       ...defaultConfig.variants.transitionDuration,
+  //       "motion-safe",
+  //     ],
+  //     translate: [
+  //       ...defaultConfig.variants.transitionDuration,
+  //       "active",
+  //       "group-hover",
+  //     ],
+  //     ringWidth: [
+  //       ...defaultConfig.variants.ringWidth,
+  //       "hover",
+  //       "focus",
+  //       "focus-visible",
+  //     ],
+  //     ringColor: [
+  //       ...defaultConfig.variants.ringColor,
+  //       "hover",
+  //       "focus",
+  //       "focus-visible",
+  //     ],
+  //     zIndex: [...defaultConfig.variants.zIndex, "hover"],
+  //   },
+  // },
   plugins: [],
   corePlugins: {
     container: false,
