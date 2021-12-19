@@ -1,16 +1,21 @@
-import { useField } from "formik";
+import { FieldHookConfig, useField } from "formik";
 
-const MyTextField = ({ label, ...props }) => {
-  const [field, meta, helpers] = useField(props);
+interface ComponentProps<T> {
+  config: FieldHookConfig<T>;
+  label: string;
+  name: string;
+}
+
+export const AsyncInputField = (props: ComponentProps<string>) => {
+  const [field] = useField(props.config);
   return (
-    <>
-      <label>
-        {label}
-        <input {...field} {...props} />
-      </label>
-      {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
-      ) : null}
-    </>
+    <div className="">
+      <div className={""}>
+        <label htmlFor={props.name} className="w-full">
+          {props.label}
+          <input className={"block"} {...field} />
+        </label>
+      </div>
+    </div>
   );
 };
