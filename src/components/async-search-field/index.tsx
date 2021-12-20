@@ -30,7 +30,11 @@ export const AsyncInputField: FunctionComponent<ComponentProps> = ({
 }: ComponentProps) => {
   return (
     <div className="relative">
-      <div className={"bg-white shadow rounded-r-none shadow-text rounded-5 justify-center hover:cursor-text h-54"}>
+      <div
+        className={
+          "bg-white shadow rounded-r-none shadow-text rounded-5 justify-center hover:cursor-text h-54"
+        }
+      >
         <label htmlFor={name} className="block text-gray-700 p-5">
           <span
             className={"block text-12 font-semibold uppercase text-gray-700"}
@@ -54,7 +58,7 @@ export const AsyncInputField: FunctionComponent<ComponentProps> = ({
           Object.entries(results).map((country) => (
             <div
               className={
-                "cursor-pointer pb-5 pt-5 pl-5 hover:bg-trustpilot ease-in duration-200"
+                "cursor-pointer pb-5 pt-5 pl-5 hover:bg-twitter hover:text-white ease-in duration-200"
               }
               key={country[0]}
               onClick={() =>

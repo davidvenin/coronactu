@@ -6,7 +6,13 @@ import { api } from "../../constants/api-routes";
 import { useRequest } from "../../helpers/use-request";
 import { CountryPayload } from "../../models/country";
 
-export const SearchForm: FunctionComponent = () => {
+interface Props {
+  setCountries: (values: FormikValues) => void;
+}
+
+export const SearchForm: FunctionComponent<Props> = ({
+  setCountries,
+}: Props) => {
   const [query, setQuery] = useState<{ from?: string; to?: string } | null>(
     null
   );
@@ -29,11 +35,6 @@ export const SearchForm: FunctionComponent = () => {
       : null
   );
 
-  const handleSubmit = (values: FormikValues) => {
-    // make async call to ulysse api with both country code
-    console.info(values);
-  };
-
   return (
     <Formik
       initialValues={{
@@ -46,7 +47,7 @@ export const SearchForm: FunctionComponent = () => {
           country: "",
         },
       }}
-      onSubmit={handleSubmit}
+      onSubmit={(values) => setCountries(values)}
     >
       {({ setFieldValue, values }) => (
         <Form
