@@ -1,11 +1,12 @@
 import type { NextPage } from "next";
 import { SearchForm } from "../components/search-form";
+import { Layout } from "../layouts";
 
 const Home: NextPage = () => {
   return (
-    <div className={"container"}>
+    <Layout title={"Restrictions"}>
       <SearchForm />
-    </div>
+    </Layout>
   );
 };
 

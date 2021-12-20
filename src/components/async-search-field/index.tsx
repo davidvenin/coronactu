@@ -28,23 +28,21 @@ export const AsyncInputField: FunctionComponent<ComponentProps> = ({
 }: ComponentProps) => {
   return (
     <div className="relative">
-      <div className={""}>
-        <label
-          htmlFor={name}
-          className="block text-sm font-medium text-gray-700"
-        >
-          <span className={"block text-sm font-medium text-gray-700"}>
+      <div className={"border border-black-50 rounded"}>
+        <label htmlFor={name} className="block text-gray-700 p-5">
+          <span
+            className={"block text-12 font-semibold uppercase text-gray-700"}
+          >
             {label}
           </span>
           <Field
+            id={name}
             autoComplete="off"
             onChange={onChange}
             value={value}
             type="text"
             name={name}
-            className={
-              "mb-10 block w-full px-3 py-2 border border-gray-30 rounded-md text-sm shadow-sm placeholder-gray-400 focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500 border"
-            }
+            className={"w-full text-14 focus:outline-0"}
           />
         </label>
       </div>

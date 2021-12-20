@@ -1,16 +1,12 @@
-import React, { useState } from "react";
+import React, { FunctionComponent, useState } from "react";
 import { Form, Formik, FormikValues } from "formik";
 
 import { AsyncInputField } from "../async-search-field";
 import { api } from "../../constants/api-routes";
 import { useRequest } from "../../helpers/use-request";
-import { Country } from "../../models/country";
+import { CountryPayload } from "../../models/country";
 
-interface CountryPayload {
-  data: Country;
-}
-
-export const SearchForm = () => {
+export const SearchForm: FunctionComponent = () => {
   const [query, setQuery] = useState<{ from?: string; to?: string } | null>(
     null
   );
@@ -55,43 +51,53 @@ export const SearchForm = () => {
       {({ setFieldValue, values }) => (
         <Form
           className={
-            "pt-30 px-30 pb-30 md:pb-15 rounded-5 shadow border border-dark-10"
+            "grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center"
           }
         >
-          <AsyncInputField
-            label={"Départ"}
-            setCountry={(e) => {
-              setFieldValue("from", e);
-              setQuery({ ...query, from: "" });
-            }}
-            value={values.from.country}
-            name={"from"}
-            results={fromData?.data}
-            onChange={(event) => {
-              setFieldValue("from.country", event.currentTarget.value, false);
-              setQuery({ ...query, from: event.currentTarget.value });
-            }}
-          />
-          <AsyncInputField
-            label={"Arrivée"}
-            value={values.to.country}
-            setCountry={(e) => {
-              setFieldValue("to", e);
-              setQuery({ ...query, to: "" });
-            }}
-            name={"to"}
-            results={toData?.data}
-            onChange={(event) => {
-              setFieldValue("to.country", event.currentTarget.value, false);
-              setQuery({ ...query, to: event.currentTarget.value });
-            }}
-          />
-          <button
-            type={"submit"}
-            className={"w-full bg-primary p-5 rounded-sm text-white"}
+          <div className={""}>
+            <AsyncInputField
+              label={"Départ"}
+              setCountry={(e) => {
+                setFieldValue("from", e);
+                setQuery({ ...query, from: "" });
+              }}
+              value={values.from.country}
+              name={"from"}
+              results={fromData?.data}
+              onChange={(event) => {
+                setFieldValue("from.country", event.currentTarget.value, false);
+                setQuery({ ...query, from: event.currentTarget.value });
+              }}
+            />
+          </div>
+          <div className={""}>
+            <AsyncInputField
+              label={"Arrivée"}
+              value={values.to.country}
+              setCountry={(e) => {
+                setFieldValue("to", e);
+                setQuery({ ...query, to: "" });
+              }}
+              name={"to"}
+              results={toData?.data}
+              onChange={(event) => {
+                setFieldValue("to.country", event.currentTarget.value, false);
+                setQuery({ ...query, to: event.currentTarget.value });
+              }}
+            />
+          </div>
+          <div
+            className={
+              "md:col-start-1 md:col-end-3 lg:col-start-3 lg:col-end-3"
+            }
           >
-            Submit
-          </button>
+            <button
+              type={"submit"}
+              className={"w-full bg-primary p-5 rounded-sm text-white p-15"}
+            >
+              Submit
+            </button>
+          </div>
         </Form>
       )}
     </Formik>
