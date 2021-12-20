@@ -15,7 +15,7 @@ export const SearchForm = () => {
     null
   );
 
-  const { data: fromData, mutate: mutateFrom } = useRequest<CountryPayload>(
+  const { data: fromData } = useRequest<CountryPayload>(
     query?.from
       ? {
           method: "GET",
