@@ -7,14 +7,14 @@ import { useRequest } from "../../helpers/use-request";
 import { Country } from "../../models/countries";
 
 interface CountryPayload {
-  data: Country[];
+  data: Country;
 }
 
 export const SearchForm = () => {
   const [query, setQuery] = useState<{ from?: string; to?: string } | null>(
     null
   );
-  // conditional fetch countries
+
   const { data: fromData } = useRequest<CountryPayload>({
     method: "GET",
     url: api.countries_api(query?.from),
@@ -33,12 +33,18 @@ export const SearchForm = () => {
   return (
     <Formik
       initialValues={{
-        from: "",
-        to: "",
+        from: {
+          code: "",
+          country: "",
+        },
+        to: {
+          code: "",
+          country: "",
+        },
       }}
       onSubmit={handleSubmit}
     >
-      {({ setFieldValue }) => (
+      {({ setFieldValue, values }) => (
         <Form
           className={
             "pt-30 px-30 pb-30 md:pb-15 rounded-5 shadow border border-dark-10"
@@ -46,19 +52,23 @@ export const SearchForm = () => {
         >
           <AsyncInputField
             label={"Départ"}
+            setCountry={(e) => setFieldValue("from", e)}
+            value={values.from.country}
             name={"from"}
             results={fromData?.data}
             onChange={(event) => {
-              setFieldValue("from", event.currentTarget.value, false);
+              setFieldValue("from.country", event.currentTarget.value, false);
               setQuery({ ...query, from: event.currentTarget.value });
             }}
           />
           <AsyncInputField
             label={"Arrivée"}
+            value={values.to.country}
+            setCountry={(e) => setFieldValue("to", e)}
             name={"to"}
             results={toData?.data}
             onChange={(event) => {
-              setFieldValue("to", event.currentTarget.value, false);
+              setFieldValue("to.country", event.currentTarget.value, false);
               setQuery({ ...query, to: event.currentTarget.value });
             }}
           />
