@@ -51,12 +51,13 @@ export const SearchForm: FunctionComponent = () => {
       {({ setFieldValue, values }) => (
         <Form
           className={
-            "grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center"
+            "p-10 shadow-high bg-gray-light rounded-5 py-10 rounded-tl-none grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center"
           }
         >
           <div className={""}>
             <AsyncInputField
               label={"Départ"}
+              placeholder={"Ex: France"}
               setCountry={(e) => {
                 setFieldValue("from", e);
                 setQuery({ ...query, from: "" });
@@ -73,6 +74,7 @@ export const SearchForm: FunctionComponent = () => {
           <div className={""}>
             <AsyncInputField
               label={"Arrivée"}
+              placeholder={"Ex: Japan"}
               value={values.to.country}
               setCountry={(e) => {
                 setFieldValue("to", e);

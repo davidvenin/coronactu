@@ -13,6 +13,7 @@ interface ComponentProps {
   results?: Country;
   value: string;
   setCountry: (arg: Options) => void;
+  placeholder: string;
   onChange: (
     e: ChangeEvent<HTMLInputElement>
   ) => void | FormikHandlers["handleChange"];
@@ -23,12 +24,13 @@ export const AsyncInputField: FunctionComponent<ComponentProps> = ({
   name,
   results,
   value = "",
+  placeholder,
   setCountry,
   onChange,
 }: ComponentProps) => {
   return (
     <div className="relative">
-      <div className={"border border-black-50 rounded"}>
+      <div className={"bg-white shadow rounded-r-none shadow-text rounded-5 justify-center hover:cursor-text h-54"}>
         <label htmlFor={name} className="block text-gray-700 p-5">
           <span
             className={"block text-12 font-semibold uppercase text-gray-700"}
@@ -37,6 +39,7 @@ export const AsyncInputField: FunctionComponent<ComponentProps> = ({
           </span>
           <Field
             id={name}
+            placeholder={placeholder}
             autoComplete="off"
             onChange={onChange}
             value={value}
