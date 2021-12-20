@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FunctionComponent } from "react";
 import { Field, FormikHandlers } from "formik";
-import { Country } from "../../models/countries";
+import { Country } from "../../models/country";
 
 interface Options {
   code: string;
@@ -27,7 +27,7 @@ export const AsyncInputField: FunctionComponent<ComponentProps> = ({
   onChange,
 }: ComponentProps) => {
   return (
-    <div className="">
+    <div className="relative">
       <div className={""}>
         <label
           htmlFor={name}
@@ -37,6 +37,7 @@ export const AsyncInputField: FunctionComponent<ComponentProps> = ({
             {label}
           </span>
           <Field
+            autoComplete="off"
             onChange={onChange}
             value={value}
             type="text"
@@ -47,21 +48,26 @@ export const AsyncInputField: FunctionComponent<ComponentProps> = ({
           />
         </label>
       </div>
-      {results &&
-        Object.entries(results).map((country) => (
-          <div
-            key={country[0]}
-            onClick={() =>
-              setCountry({
-                code: country[0],
-                country: country[1].country,
-              })
-            }
-          >
-            <span>{country[0]}</span>
-            <span>{country[1].country}</span>
-          </div>
-        ))}
+      <div className={"absolute w-full bg-white z-10 shadow-lg"}>
+        {results &&
+          Object.entries(results).map((country) => (
+            <div
+              className={
+                "cursor-pointer pb-5 pt-5 pl-5 hover:bg-trustpilot ease-in duration-200"
+              }
+              key={country[0]}
+              onClick={() =>
+                setCountry({
+                  code: country[0],
+                  country: country[1].country,
+                })
+              }
+            >
+              <span>{country[0]} - </span>
+              <span>{country[1].country}</span>
+            </div>
+          ))}
+      </div>
     </div>
   );
 };

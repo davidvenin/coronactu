@@ -4,7 +4,7 @@ import { Form, Formik, FormikValues } from "formik";
 import { AsyncInputField } from "../async-search-field";
 import { api } from "../../constants/api-routes";
 import { useRequest } from "../../helpers/use-request";
-import { Country } from "../../models/countries";
+import { Country } from "../../models/country";
 
 interface CountryPayload {
   data: Country;
