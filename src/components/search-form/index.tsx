@@ -15,15 +15,23 @@ export const SearchForm = () => {
     null
   );
 
-  const { data: fromData } = useRequest<CountryPayload>({
-    method: "GET",
-    url: api.countries_api(query?.from),
-  });
+  const { data: fromData, mutate: mutateFrom } = useRequest<CountryPayload>(
+    query?.from
+      ? {
+          method: "GET",
+          url: api.countries_api(query?.from),
+        }
+      : null
+  );
 
-  const { data: toData } = useRequest<CountryPayload>({
-    method: "GET",
-    url: api.countries_api(query?.to),
-  });
+  const { data: toData } = useRequest<CountryPayload>(
+    query?.to
+      ? {
+          method: "GET",
+          url: api.countries_api(query?.to),
+        }
+      : null
+  );
 
   const handleSubmit = (values: FormikValues) => {
     // make async call to ulysse api with both country code
@@ -52,7 +60,10 @@ export const SearchForm = () => {
         >
           <AsyncInputField
             label={"Départ"}
-            setCountry={(e) => setFieldValue("from", e)}
+            setCountry={(e) => {
+              setFieldValue("from", e);
+              setQuery({ ...query, from: "" });
+            }}
             value={values.from.country}
             name={"from"}
             results={fromData?.data}
@@ -64,7 +75,10 @@ export const SearchForm = () => {
           <AsyncInputField
             label={"Arrivée"}
             value={values.to.country}
-            setCountry={(e) => setFieldValue("to", e)}
+            setCountry={(e) => {
+              setFieldValue("to", e);
+              setQuery({ ...query, to: "" });
+            }}
             name={"to"}
             results={toData?.data}
             onChange={(event) => {
