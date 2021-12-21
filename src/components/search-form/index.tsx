@@ -8,10 +8,12 @@ import { CountryPayload } from "../../models/country";
 
 interface Props {
   setCountries: (values: FormikValues) => void;
+  isLoading: boolean;
 }
 
 export const SearchForm: FunctionComponent<Props> = ({
   setCountries,
+  isLoading,
 }: Props) => {
   const [query, setQuery] = useState<{ from?: string; to?: string } | null>(
     null
@@ -96,9 +98,12 @@ export const SearchForm: FunctionComponent<Props> = ({
           >
             <button
               type={"submit"}
-              className={"w-full bg-primary p-5 rounded-sm text-white p-15"}
+              className={
+                "w-full bg-primary hover:bg-dark p-5 rounded-sm text-white p-15 transition ease-in duration-100"
+              }
             >
-              Submit
+              {isLoading && <>Processing...</>}
+              {!isLoading && <>Submit</>}
             </button>
           </div>
         </Form>
