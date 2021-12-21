@@ -6,7 +6,7 @@ import { FormikValues } from "formik";
 import { useRequest } from "../helpers/use-request";
 import { api } from "../constants/api-routes";
 import { RestrictionsPayload } from "../models/restriction";
-import { Card } from "../components/card";
+import { List } from "../components/list";
 
 const Home: NextPage = () => {
   const [countries, setCountries] = useState<FormikValues | null>(null);
@@ -32,13 +32,7 @@ const Home: NextPage = () => {
         }}
         isLoading={isLoading}
       />
-      {data?.included && (
-        <>
-          {data.included.map((restriction) => (
-            <Card key={restriction.id} restriction={restriction} />
-          ))}
-        </>
-      )}
+      {data?.included && <List collection={data.included} />}
     </Layout>
   );
 };
