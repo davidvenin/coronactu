@@ -32,7 +32,9 @@ const Home: NextPage = () => {
         }}
         isLoading={isLoading}
       />
-      {data?.included && <List collection={data.included} />}
+      <div className={"mt-40"}>
+        {data?.included && <List collection={data.included} />}
+      </div>
     </Layout>
   );
 };
