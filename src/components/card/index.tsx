@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import { format } from "date-fns";
 import { Included } from "../../models/restriction";
+import { useModal } from "../../hooks/use-modal";
 
 interface Props {
   restriction: Included;
@@ -8,8 +9,15 @@ interface Props {
 
 export const Card: FunctionComponent<Props> = ({ restriction }: Props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { show, hide, RenderModal } = useModal();
   return (
-    <div className="shadow-high bg-gray-light rounded-5 py-10 rounded-tl-none pb-30 pt-30 pl-20 pr-20 text-14 max-h-300">
+    <div
+      onClick={() => {
+        setIsOpen(true);
+        show();
+      }}
+      className="shadow-high bg-gray-light rounded-5 py-10 rounded-tl-none pb-30 pt-30 pl-20 pr-20 text-14 max-h-300"
+    >
       <div className={"flex items-center mb-10"}>
         <strong className="text-12">{restriction.attributes.country}</strong>
         <h3 className="ml-16 font-semibold ml-5">
@@ -31,17 +39,6 @@ export const Card: FunctionComponent<Props> = ({ restriction }: Props) => {
           {restriction.attributes.description}
         </p>
       )}
-      {restriction.attributes.more[0] && isOpen && (
-        <p>{restriction.attributes.more}</p>
-      )}
-      {restriction.attributes.more[0] && isOpen && (
-        <p
-          className={"font-semibold cursor-pointer"}
-          onClick={() => setIsOpen(false)}
-        >
-          En voir moins
-        </p>
-      )}
       <div>
         <h4>Source</h4>
         <a
@@ -53,6 +50,24 @@ export const Card: FunctionComponent<Props> = ({ restriction }: Props) => {
           {restriction.attributes.source.title}
         </a>
       </div>
+      <RenderModal>
+        <>
+          {restriction.attributes.more[0] && isOpen && (
+            <p>{restriction.attributes.more}</p>
+          )}
+          {restriction.attributes.more[0] && isOpen && (
+            <p
+              className={"font-semibold cursor-pointer"}
+              onClick={() => {
+                setIsOpen(false);
+                hide();
+              }}
+            >
+              En voir moins
+            </p>
+          )}
+        </>
+      </RenderModal>
     </div>
   );
 };
