@@ -36,7 +36,6 @@ export const SearchForm: FunctionComponent<Props> = ({
         }
       : null
   );
-
   return (
     <Formik
       initialValues={{

@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FunctionComponent } from "react";
 import { Field, FormikHandlers } from "formik";
 import { Country } from "../../models/country";
+import { instanceOf } from "prop-types";
 
 interface Options {
   code: string;
@@ -10,7 +11,7 @@ interface Options {
 interface ComponentProps {
   label: string;
   name: string;
-  results?: Country;
+  results?: Country | [];
   value: string;
   setCountry: (arg: Options) => void;
   placeholder: string;
@@ -50,6 +51,11 @@ export const AsyncInputField: FunctionComponent<ComponentProps> = ({
         </label>
       </div>
       <div className={"absolute w-full bg-white z-10 shadow-lg"}>
+        {results?.length === 0 && (
+          <div className={"pb-5 pt-5 pl-5 ease-in duration-200"}>
+            <span>Aucun résultat</span>
+          </div>
+        )}
         {results &&
           Object.entries(results).map((country) => (
             <div
