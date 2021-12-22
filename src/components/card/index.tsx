@@ -13,7 +13,7 @@ export const Card: FunctionComponent<Props> = ({ restriction }: Props) => {
     <>
       <div
         onClick={show}
-        className="shadow-high bg-gray-light rounded-5 py-10 rounded-tl-none pb-30 pt-30 pl-20 pr-20 text-14 max-h-300 cursor-pointer"
+        className="shadow-high bg-gray-light rounded-5 py-10 rounded-tl-none pb-30 pt-30 pl-20 pr-20 text-14 max-h-300 cursor-pointer flex-col justify-between"
       >
         <div className={"flex items-center mb-10"}>
           <strong className="text-12">{restriction.attributes.country}</strong>
@@ -39,7 +39,7 @@ export const Card: FunctionComponent<Props> = ({ restriction }: Props) => {
             {restriction.attributes.description}
           </p>
         )}
-        <div>
+        <div className="flex justify-between self-end">
           <a
             href={restriction.attributes.source.url}
             target="_blank"
@@ -48,6 +48,22 @@ export const Card: FunctionComponent<Props> = ({ restriction }: Props) => {
           >
             {restriction.attributes.source.title}
           </a>
+          <div className="w-20 h-20">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M8 12h.01M12 12h.01M16 12h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+          </div>
         </div>
       </div>
       <RenderModal>
