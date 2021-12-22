@@ -50,7 +50,11 @@ export const AsyncInputField: FunctionComponent<ComponentProps> = ({
           />
         </label>
       </div>
-      <div className={"absolute w-full bg-white z-10 shadow-lg"}>
+      <div
+        className={`absolute w-full bg-white z-10 shadow-lg ${
+          results && "h-200"
+        } overflow-y-auto`}
+      >
         {results?.length === 0 && (
           <div className={"pb-5 pt-5 pl-5 ease-in duration-200"}>
             <span>Aucun résultat</span>
