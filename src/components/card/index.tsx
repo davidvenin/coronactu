@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react";
 import { format } from "date-fns";
 import { Included } from "../../models/restriction";
 import { useModal } from "../../hooks/use-modal";
+import { fr } from "date-fns/locale";
 
 interface Props {
   restriction: Included;
@@ -24,11 +25,15 @@ export const Card: FunctionComponent<Props> = ({ restriction }: Props) => {
         <div className={"mb-10"}>
           <span className={"block text-12 text-gray-70"}>
             Mise en vigueur :{" "}
-            {format(new Date(restriction.attributes.createdAt), "P")}
+            {format(new Date(restriction.attributes.createdAt), "P", {
+              locale: fr,
+            })}
           </span>
           <span className={"block text-12 text-gray-70"}>
             Dernière mise à jour :{" "}
-            {format(new Date(restriction.attributes.lastUpdatedAt), "P")}
+            {format(new Date(restriction.attributes.lastUpdatedAt), "P", {
+              locale: fr,
+            })}
           </span>
         </div>
         {restriction.attributes.description && (
