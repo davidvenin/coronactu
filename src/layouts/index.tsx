@@ -20,6 +20,7 @@ export const Layout: FunctionComponent<Props> = ({
           Made with <span className={"text-red"}>love</span> by David V.
         </p>
       </footer>
+      <div id="modal-root" />
     </section>
   );
 };
