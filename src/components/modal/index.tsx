@@ -12,7 +12,7 @@ export const Modal = memo(({ children, closeModal }: Props) => {
   if (!domEl) return null;
 
   return createPortal(
-    <div className="fixed w-full bottom-0 top-0 left-0 right-0 bg-white-90">
+    <div className="fixed w-full bottom-0 top-0 left-0 right-0 bg-white-90 overflow-y-auto">
       <div className="relative">
         <div className="p-20 md:w-400 mx-auto mt-50 shadow-thin bg-gray-light rounded-5 rounded-tl-none">
           <div>
