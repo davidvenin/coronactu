@@ -24,14 +24,11 @@ export const Card: FunctionComponent<Props> = ({ restriction }: Props) => {
         <div className={"mb-10"}>
           <span className={"block text-12 text-gray-70"}>
             Mise en vigueur :{" "}
-            {format(new Date(restriction.attributes.createdAt), "dd-mm-yyyy")}
+            {format(new Date(restriction.attributes.createdAt), "P")}
           </span>
           <span className={"block text-12 text-gray-70"}>
             Dernière mise à jour :{" "}
-            {format(
-              new Date(restriction.attributes.lastUpdatedAt),
-              "dd-mm-yyyy"
-            )}
+            {format(new Date(restriction.attributes.lastUpdatedAt), "P")}
           </span>
         </div>
         {restriction.attributes.description && (

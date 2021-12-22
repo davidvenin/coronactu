@@ -23,8 +23,8 @@ export interface Attributes {
   documentLinks: DocumentLink[];
   tags: string[];
   source: Source;
-  lastUpdatedAt: string;
-  createdAt: string;
+  lastUpdatedAt: Date;
+  createdAt: Date;
   startDate: Date;
   endDate: null;
   category: string;
