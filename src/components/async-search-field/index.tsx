@@ -1,7 +1,6 @@
 import React, { ChangeEvent, FunctionComponent } from "react";
 import { Field, FormikHandlers } from "formik";
 import { Country } from "../../models/country";
-import { instanceOf } from "prop-types";
 
 interface Options {
   code: string;

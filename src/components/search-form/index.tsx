@@ -102,8 +102,8 @@ export const SearchForm: FunctionComponent<Props> = ({
                 "w-full bg-primary hover:bg-dark p-5 rounded-sm text-white p-15 transition ease-in duration-100 disabled:opacity-75 disabled:cursor-not-allowed"
               }
             >
-              {isLoading && <>Processing...</>}
-              {!isLoading && <>Submit</>}
+              {isLoading && <>Chargement en cours...</>}
+              {!isLoading && <>Rechercher</>}
             </button>
           </div>
         </Form>
