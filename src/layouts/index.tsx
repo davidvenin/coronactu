@@ -15,6 +15,11 @@ export const Layout: FunctionComponent<Props> = ({
         <h1 className={"text-40 font-semibold"}>{title}</h1>
         <div>{children}</div>
       </div>
+      <footer className={"mt-10 p-20 text-center text-12 text-gray"}>
+        <p>
+          Made with <span className={"text-red"}>love</span> by David V.
+        </p>
+      </footer>
     </section>
   );
 };
