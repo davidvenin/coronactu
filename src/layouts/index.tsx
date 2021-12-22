@@ -12,7 +12,7 @@ export const Layout: FunctionComponent<Props> = ({
   return (
     <section>
       <div className={"container"}>
-        <h1 className={"text-40 font-semibold"}>{title}</h1>
+        <h1 className={"text-30 font-semibold m-20"}>{title}</h1>
         <div>{children}</div>
       </div>
       <footer className={"mt-10 p-20 text-center text-12 text-gray"}>

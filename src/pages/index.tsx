@@ -24,7 +24,10 @@ const Home: NextPage = () => {
   }, [data, error]);
 
   return (
-    <Layout title={"Restrictions"}>
+    <Layout title={"Coronactu"}>
+      <p className="m-20 text-center font-semibold text-18">
+        Toutes les informations dont vous avez besoin pour voyager sereinement.
+      </p>
       <SearchForm
         setCountries={(c) => {
           setLoading(true);
