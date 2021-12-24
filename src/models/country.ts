@@ -1,3 +1,8 @@
+export interface Options {
+  code: string;
+  country: string;
+}
+
 export interface CountryPayload {
   data: Country;
 }
