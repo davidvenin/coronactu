@@ -22,4 +22,5 @@ I created this project with my base starter using all the followings
 - SWR : to work with async stuff
 - Tailwindcss
 - Formik : to handle form
+- And a little bit of Cypress
 - With Love and Passion
