@@ -3,15 +3,18 @@ import { Country, Options } from "../../models/country";
 
 interface Props {
   results?: Country | [];
+  id: string;
   setCountry: (arg: Options) => void;
 }
 
 export const Suggestion: FunctionComponent<Props> = ({
   results,
   setCountry,
+  id,
 }: Props) => {
   return (
     <div
+      id={`${id}-results`}
       className={`absolute w-full bg-white z-10 shadow-lg ${
         results && "h-200"
       } overflow-y-auto`}

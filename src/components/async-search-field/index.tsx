@@ -45,7 +45,7 @@ export const AsyncInputField: FunctionComponent<ComponentProps> = ({
           />
         </label>
       </div>
-      <Suggestion setCountry={setCountry} results={results} />
+      <Suggestion id={name} setCountry={setCountry} results={results} />
     </div>
   );
 };
