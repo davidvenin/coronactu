@@ -55,9 +55,7 @@ export const Card: FunctionComponent<Props> = ({ restriction }: Props) => {
               date={restriction.attributes.lastUpdatedAt}
             />
           </div>
-          {restriction.attributes.description && (
-            <p className="text-14">{restriction.attributes.description}</p>
-          )}
+          <p className="text-14">{restriction.attributes.description}</p>
           {restriction.attributes.more[0] && (
             <p className={"text-14 mt-20 mb-20"}>
               {restriction.attributes.more}
