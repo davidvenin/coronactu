@@ -3,7 +3,7 @@ import { SearchForm } from "../components/search-form";
 import { Layout } from "../layouts";
 import { useEffect, useState } from "react";
 import { FormikValues } from "formik";
-import { useRequest } from "../helpers/use-request";
+import { useRequest } from "../hooks/use-request";
 import { api } from "../constants/api-routes";
 import { RestrictionsPayload } from "../models/restriction";
 import { List } from "../components/list";
