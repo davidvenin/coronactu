@@ -3,6 +3,7 @@ export const form = context("Seach Form", () => {
     beforeEach(() => {
       cy.visit("http://localhost:3000");
     });
+    
     it("should have two inputs and button", () => {
       cy.get("form");
       cy.get("input[name=from]");

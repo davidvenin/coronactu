@@ -36,7 +36,7 @@ const Home: NextPage = () => {
         isLoading={isLoading}
       />
       <div className={"mt-40"}>
-        {data?.included && <List collection={data.included} />}
+        {data?.included ? <List collection={data.included} /> : null}
       </div>
     </Layout>
   );
