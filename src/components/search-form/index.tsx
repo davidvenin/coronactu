@@ -99,7 +99,7 @@ export const SearchForm: FunctionComponent<Props> = ({
               type={"submit"}
               disabled={!values.to.code || !values.from.code}
               className={
-                "w-full bg-primary hover:bg-dark p-5 rounded-sm text-white p-15 transition ease-in duration-100 disabled:opacity-75 disabled:cursor-not-allowed"
+                "w-full bg-primary hover:bg-dark p-5 rounded-full shadow-thin text-white p-15 transition ease-in duration-100 disabled:opacity-75 disabled:cursor-not-allowed font-semibold"
               }
             >
               {isLoading ? <>Chargement en cours...</> : null}
