@@ -14,6 +14,11 @@ export interface DocumentLink {
   title: string;
 }
 
+export enum Type {
+  Restriction = "RESTRICTION",
+  Procedure = "PROCEDURE",
+}
+
 export interface Attributes {
   country: string;
   title: string;
