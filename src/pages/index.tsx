@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import { FormikValues } from "formik";
 import { useRequest } from "../hooks/use-request";
 import { api } from "../constants/api-routes";
-import { RestrictionsPayload } from "../models/restriction";
-import { List } from "../components/list";
+import { RestrictionsPayload, Type } from "../models/restriction";
+import { FilterTab } from "../components/filter-tab";
 
 const Home: NextPage = () => {
   const [countries, setCountries] = useState<FormikValues | null>(null);
@@ -36,7 +36,15 @@ const Home: NextPage = () => {
         isLoading={isLoading}
       />
       <div className={"mt-40"}>
-        {data?.included ? <List collection={data.included} /> : null}
+        {data?.included ? (
+          <FilterTab
+            collection={data.included}
+            filters={{
+              objectKey: "type",
+              values: [Type.Restriction, Type.Procedure],
+            }}
+          />
+        ) : null}
       </div>
     </Layout>
   );
