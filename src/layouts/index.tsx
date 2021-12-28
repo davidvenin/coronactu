@@ -14,7 +14,13 @@ export const Layout: FunctionComponent<Props> = ({
     <section className="relative min-h-[100vh]">
       <div className="relative z-50">
         <div className={"container"}>
-          <h1 className={"text-30 font-semibold text-center"}>{title}</h1>
+          <h1
+            className={
+              "text-30 font-semibold text-center text-white text-shadow-lg pt-20"
+            }
+          >
+            {title}
+          </h1>
           <div>{children}</div>
         </div>
         <footer className={"mt-10 p-20 text-center text-12 text-gray"}>

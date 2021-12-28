@@ -11,7 +11,7 @@ export const Card: FunctionComponent<Props> = ({ restriction }: Props) => {
   const { show, RenderModal } = useModal();
   return (
     <>
-      <div className="shadow-high bg-white-70 backdrop-blur-sm  rounded-5 py-10 rounded-tl-none pb-30 pt-30 pl-20 pr-20 text-14 max-h-340 flex-col justify-between">
+      <div className="shadow-high bg-white-70 backdrop-blur-sm rounded-5 py-10 rounded-tl-none pb-30 pt-30 pl-20 pr-20 text-14 max-h-340 flex-col justify-between">
         <div>
           <div className="mb-20">
             <Heading

@@ -51,56 +51,43 @@ export const SearchForm: FunctionComponent<Props> = ({
       onSubmit={(values) => setCountries(values)}
     >
       {({ setFieldValue, values }) => (
-        <Form
-          className={
-            "p-10 shadow-high bg-gray-light rounded-5 py-10 rounded-tl-none grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center"
-          }
-        >
-          <div className={""}>
-            <AsyncInputField
-              label={"Départ"}
-              placeholder={"Ex: France"}
-              setCountry={(e) => {
-                setFieldValue("from", e);
-                setQuery({ ...query, from: "" });
-              }}
-              value={values.from.country}
-              name={"from"}
-              results={fromData?.data}
-              onChange={(event) => {
-                setFieldValue("from.country", event.currentTarget.value, false);
-                setQuery({ ...query, from: event.currentTarget.value });
-              }}
-            />
-          </div>
-          <div className={""}>
-            <AsyncInputField
-              label={"Arrivée"}
-              placeholder={"Ex: Japan"}
-              value={values.to.country}
-              setCountry={(e) => {
-                setFieldValue("to", e);
-                setQuery({ ...query, to: "" });
-              }}
-              name={"to"}
-              results={toData?.data}
-              onChange={(event) => {
-                setFieldValue("to.country", event.currentTarget.value, false);
-                setQuery({ ...query, to: event.currentTarget.value });
-              }}
-            />
-          </div>
-          <div
-            className={
-              "md:col-start-1 md:col-end-3 lg:col-start-3 lg:col-end-3"
-            }
-          >
+        <Form className="p-10 shadow-high bg-gray-light rounded-5 py-10 rounded-tl-none grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center">
+          <AsyncInputField
+            label="Départ"
+            placeholder="Ex: France"
+            setCountry={(e) => {
+              setFieldValue("from", e);
+              setQuery({ ...query, from: "" });
+            }}
+            value={values.from.country}
+            name="from"
+            results={fromData?.data}
+            onChange={(event) => {
+              setFieldValue("from.country", event.currentTarget.value, false);
+              setQuery({ ...query, from: event.currentTarget.value });
+            }}
+          />
+          <AsyncInputField
+            label="Arrivée"
+            placeholder="Ex: Japan"
+            value={values.to.country}
+            setCountry={(e) => {
+              setFieldValue("to", e);
+              setQuery({ ...query, to: "" });
+            }}
+            name="to"
+            results={toData?.data}
+            onChange={(event) => {
+              setFieldValue("to.country", event.currentTarget.value, false);
+              setQuery({ ...query, to: event.currentTarget.value });
+            }}
+          />
+
+          <div className="md:col-start-1 md:col-end-3 lg:col-start-3 lg:col-end-3">
             <button
-              type={"submit"}
+              type="submit"
               disabled={!values.to.code || !values.from.code}
-              className={
-                "w-full bg-primary hover:bg-dark p-5 rounded-full shadow-thin text-white p-15 transition ease-in duration-100 disabled:opacity-75 disabled:cursor-not-allowed font-semibold"
-              }
+              className="block bg-black hover:bg-gray w-full p-5 rounded-full shadow-thin text-white p-15 transition ease-in duration-100 disabled:opacity-75 disabled:cursor-not-allowed font-semibold"
             >
               {isLoading ? <>Chargement en cours...</> : null}
               {!isLoading ? <>Rechercher</> : null}
