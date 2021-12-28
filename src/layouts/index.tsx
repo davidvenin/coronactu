@@ -1,4 +1,5 @@
 import { FunctionComponent, ReactNode } from "react";
+import bg from "../../public/images/bg.jpg";
 import Image from "next/image";
 
 interface Props {
@@ -28,12 +29,12 @@ export const Layout: FunctionComponent<Props> = ({
             Made with <span className={"text-red"}>love</span> by David V.
           </p>
         </footer>
-
         <div id="modal-root" />
       </div>
       <Image
+        placeholder="blur"
         className="sticky -z-10"
-        src="/images/bg.jpg"
+        src={bg}
         alt="Background"
         layout="fill"
         objectFit="cover"
