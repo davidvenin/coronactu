@@ -25,7 +25,7 @@ const Home: NextPage = () => {
 
   return (
     <Layout title={"Coronactu"}>
-      <p className="m-20 text-center font-semibold text-18">
+      <p className="m-20 text-center font-semibold text-18 text-shadow-lg text-white">
         Toutes les informations dont vous avez besoin pour voyager sereinement.
       </p>
       <SearchForm

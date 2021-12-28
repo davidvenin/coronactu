@@ -348,6 +348,9 @@ module.exports = {
   //     zIndex: [...defaultConfig.variants.zIndex, "hover"],
   //   },
   // },
-  plugins: [require("@tailwindcss/line-clamp")],
+  plugins: [
+    require("@tailwindcss/line-clamp"),
+    require("tailwindcss-textshadow"),
+  ],
   corePlugins: {},
 };
