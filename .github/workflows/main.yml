@@ -5,6 +5,9 @@ on: [push]
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
+    env:
+      COUNTRIES_API_URL: ${{ secrets.COUNTRIES_API_URL }}
+      RESTRICTIONS_API_URL: ${{ secrets.RESTRICTIONS_API_URL }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -16,6 +19,3 @@ jobs:
           env: true
           build: yarn build
           start: yarn dev
-        env:
-          COUNTRIES_API_URL: ${{ secrets.COUNTRIES_API_URL }}
-          RESTRICTIONS_API_URL: ${{ secrets.RESTRICTIONS_API_URL }}
