@@ -51,7 +51,7 @@ export const SearchForm: FunctionComponent<Props> = ({
       onSubmit={(values) => setCountries(values)}
     >
       {({ setFieldValue, values }) => (
-        <Form className="p-10 shadow-high bg-gray-light rounded-5 py-10 rounded-tl-none grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center">
+        <Form className="p-10 shadow-high bg-gray-light rounded-5 py-10 grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center">
           <AsyncInputField
             label="Départ"
             placeholder="Ex: France"

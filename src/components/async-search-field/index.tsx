@@ -26,7 +26,7 @@ export const AsyncInputField: FunctionComponent<ComponentProps> = ({
 }: ComponentProps) => {
   return (
     <div className="relative">
-      <div className="bg-white shadow rounded-r-none shadow-text rounded-5 justify-center hover:cursor-text h-54">
+      <div className="bg-white shadow shadow-text rounded-5 justify-center hover:cursor-text h-54">
         <label htmlFor={name} className="block text-gray-700 p-5">
           <span
             className={"block text-12 font-semibold uppercase text-gray-700"}

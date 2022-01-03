@@ -14,7 +14,7 @@ export const FilterTab: FunctionComponent<Props> = ({
   const [tab, setTab] = useState<string>("");
   return (
     <div>
-      <nav className="flex mb-20 shadow-thin bg-gray-light rounded-5 rounded-b-none rounded-tl-none font-semibold text-14">
+      <nav className="flex mb-20 shadow-thin bg-gray-light rounded-5 rounded-b-none font-semibold text-14">
         <span
           className={`block px-15 py-10 cursor-pointer ${
             tab === "" && "bg-gray text-white"
